@@ -28,7 +28,7 @@ const FriendsList = () => {
 
     return (
         <div>
-            <AddFriend friendsList={friendsList}/>
+            <AddFriend friendsList={friendsList} setFriendsList={setFriendsList}/>
             <h2>My List of Friends</h2>
             {loadingList && <p>Loading My Friends List...</p>}
             {friendsList.map(friend => {
