@@ -13,7 +13,7 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
     <header>
       <nav>
         <ul>
-          {isLoggedIn ? console.log('Logged IN') : console.log('Not Logged IN')}
+          {isLoggedIn ? console.log('Logged IN') : console.log('Logged OUT')}
           {isLoggedIn 
           ? (<li>
             <Link to="#" onClick={logout}>
@@ -25,6 +25,9 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
           </li>)}
           <li>
             <Link to="/friends">Friends</Link>
+          </li>
+          <li>
+            <Link to="/friends/add">Add Friends</Link>
           </li>
         </ul>
       </nav>

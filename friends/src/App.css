@@ -11,6 +11,17 @@ ul {
   pointer-events: none;
 }
 
+.friend-form {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
