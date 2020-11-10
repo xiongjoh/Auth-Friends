@@ -4,20 +4,44 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 
 const initialFriendForm = {
     name:'',
-    age:null,
+    age:'',
     email:'',
 }
 
-const AddFriend = () => {
+const AddFriend = (props) => {
+    const { friendsList } = props
     const [friendForm, setFriendForm] = useState(initialFriendForm)
 
+    const onChange = (event) => {
+        const { name, value} = event.target
+        setFriendForm({
+            ...friendForm,
+            [name]:value
+        })
+    }
+
+    const postFriend = (event) => {
+        event.preventDefault()
+        const friendToPost = {...friendForm, age:Number(friendForm.age), id:friendsList.length+1}
+        axiosWithAuth()
+        .post('/friends')
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
   return (
-    <form className="friend-form">
+    <form className="friend-form" onSubmit={postFriend}>
       <label>
         <input 
         placeholder='name'
         type='text'
         name='name'
+        value={friendForm.name}
+        onChange={onChange}
         />
       </label>
       <label>
@@ -25,6 +49,8 @@ const AddFriend = () => {
         placeholder='age'
         type='number'
         name='age'
+        value={friendForm.age}
+        onChange={onChange}
         />
       </label>
       <label>
@@ -32,6 +58,8 @@ const AddFriend = () => {
         placeholder='email'
         type='email'
         name='email'
+        value={friendForm.email}
+        onChange={onChange}
         />
       </label>
       <div>

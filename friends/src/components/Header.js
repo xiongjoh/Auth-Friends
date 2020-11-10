@@ -26,9 +26,9 @@ const Header = ({isLoggedIn, setIsLoggedIn}) => {
           <li>
             <Link to="/friends">Friends</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/friends/add">Add Friends</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>
